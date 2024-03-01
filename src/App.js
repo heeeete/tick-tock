@@ -30,6 +30,8 @@ const HourHand = styled.div`
   transform-origin: bottom;
   transform: rotateZ(${(props) => props.$hours * 30 + props.$minutes / 2}deg);
   font-size: ${(props) => props.$clocksize.height / 20}px;
+  transition: transform 1s ease;
+
   /* background-color: blue; */
   & > * {
     /* margin-block: ${(props) => props.$clocksize.height / 1000}px; */
@@ -49,6 +51,8 @@ const MinuteHand = styled.div`
   transform-origin: bottom;
   font-size: ${(props) => props.$clocksize.height / 20}px;
   transform: rotateZ(${(props) => props.$minutes * 6}deg);
+  transition: transform 1s ease;
+
   /* background-color: green; */
   & > * {
     /* margin-block: ${(props) => props.$clocksize.height / 1000}px; */
@@ -66,13 +70,13 @@ const SecondHand = styled.div`
   left: calc(50% - ${(props) => props.$clocksize.height / 18 / 2}px);
   bottom: 50%;
   transform-origin: bottom;
-  font-size: ${(props) => props.$clocksize.height / 20}px;
+  font-size: ${(props) => props.$clocksize.height / 40}px;
   transform: rotateZ(${(props) => props.$seconds * 6}deg);
   transition: transform 1s ease;
   /* background-color: purple; */
 
   & > * {
-    /* margin-block: ${(props) => props.$clocksize.height / 1000}px; */
+    margin-block: ${(props) => props.$clocksize.height / 70}px;
   }
 `;
 
@@ -135,8 +139,17 @@ function App() {
   return (
     <AppContainer>
       <Clock ref={clockRef}>
-        <Origin>밤</Origin>
+        <Origin>PM</Origin>
         <HourHand $hours={hours} $minutes={minutes} $clocksize={dimensions}>
+          <HoursHandText $hours={hours} $minutes={minutes}>
+            {hours}
+          </HoursHandText>
+          <HoursHandText $hours={hours} $minutes={minutes}>
+            {hours}
+          </HoursHandText>
+          <HoursHandText $hours={hours} $minutes={minutes}>
+            {hours}
+          </HoursHandText>
           <HoursHandText $hours={hours} $minutes={minutes}>
             {hours}
           </HoursHandText>
