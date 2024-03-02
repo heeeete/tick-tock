@@ -31,7 +31,6 @@ const Clock = styled.div`
 	justify-content: center;
 	align-items: center;
 	color: white;
-	/* background-color: blue; */
 `;
 
 const HourHand = styled.div`
@@ -46,12 +45,12 @@ const HourHand = styled.div`
 	bottom: 50%;
 	transform-origin: bottom;
 	transform: rotateZ(${(props) => props.$hours * 30 + props.$minutes / 2}deg);
-	font-size: ${(props) => props.$clocksize.height / 20}px;
+	/* font-size: ${(props) => props.$clocksize.height / 20}px; */
+	font-size: 2rem;
 	transition: transform 1s ease;
 
-	/* background-color: blue; */
-	& > * {
-		/* margin-block: ${(props) => props.$clocksize.height / 1000}px; */
+	@media (width < 768px) {
+		font-size: 1rem;
 	}
 `;
 const MinuteHand = styled.div`
@@ -66,13 +65,13 @@ const MinuteHand = styled.div`
 	bottom: 50%;
 	width: ${(props) => props.$clocksize.height / 17}px;
 	transform-origin: bottom;
-	font-size: ${(props) => props.$clocksize.height / 20}px;
+	/* font-size: ${(props) => props.$clocksize.height / 20}px; */
+	font-size: 2rem;
 	transform: rotateZ(${(props) => props.$minutes * 6}deg);
 	transition: transform 1s ease;
 
-	/* background-color: green; */
-	& > * {
-		/* margin-block: ${(props) => props.$clocksize.height / 1000}px; */
+	@media (width < 768px) {
+		font-size: 1rem;
 	}
 `;
 const SecondHand = styled.div`
@@ -87,13 +86,17 @@ const SecondHand = styled.div`
 	left: calc(50% - ${(props) => props.$clocksize.height / 18 / 2}px);
 	bottom: 50%;
 	transform-origin: bottom;
-	font-size: ${(props) => props.$clocksize.height / 40}px;
+	/* font-size: ${(props) => props.$clocksize.height / 40}px; */
+	font-size: 1rem;
 	transform: rotateZ(${(props) => props.$seconds * 6}deg);
 	transition: transform 1s ease;
-	/* background-color: purple; */
 
 	& > * {
 		margin-block: ${(props) => props.$clocksize.height / 70}px;
+	}
+
+	@media (width < 768px) {
+		font-size: 0.5rem;
 	}
 `;
 
@@ -109,7 +112,12 @@ const Origin = styled.div`
 	height: 13.3%;
 	z-index: 1;
 	border-radius: 50%;
-	font-size: ${(props) => props.$clocksize.height / 20}px;
+	/* font-size: ${(props) => props.$clocksize.height / 20}px; */
+	font-size: 2rem;
+
+	@media (width < 768px) {
+		font-size: 1rem;
+	}
 `;
 
 const Date = styled.div`
